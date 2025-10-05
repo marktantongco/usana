@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>USANA Cyber Wellness | Christine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Exo+2:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --neon-blue: #00f0ff;
+      --neon-pink: #ff00c8;
+      --neon-purple: #b967ff;
+      --neon-cyan: #00ffff;
+      --neon-green: #39ff14;
+      --neon-orange: #ff6600;
+      --dark-bg: #0a0a14;
+    }
+
+    body {
+      margin: 0;
+      background: var(--dark-bg);
+      color: white;
+      font-family: 'Exo 2', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .glow {
+      text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+    }
+
+    .neon-border {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      box-shadow: 
+        inset 0 0 20px rgba(185, 103, 255, 0.7),
+        inset 0 0 40px rgba(0, 240, 255, 0.5),
+        inset 0 0 60px rgba(255, 0, 200, 0.4);
+      animation: pulse-border 4s infinite alternate;
+    }
+
+    @keyframes pulse-border {
+      0% { box-shadow: inset 0 0 10px rgba(185, 103, 255, 0.5), inset 0 0 20px rgba(0, 240, 255, 0.3), inset 0 0 30px rgba(255, 0, 200, 0.2); }
+      100% { box-shadow: inset 0 0 30px rgba(185, 103, 255, 0.9), inset 0 0 60px rgba(0, 240, 255, 0.7), inset 0 0 90px rgba(255, 0, 200, 0.6); }
+    }
+
+    .portrait {
+      filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.8)) 
+              drop-shadow(0 0 30px rgba(255, 0, 200, 0.6));
+      border-radius: 8px;
+      max-width: 100%;
+    }
+
+    .panel {
+      background: rgba(10, 10, 20, 0.7);
+      border: 1px solid transparent;
+      border-radius: 16px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, 
+        rgba(185, 103, 255, 0.1) 0%, 
+        rgba(0, 240, 255, 0.1) 50%, 
+        rgba(255, 0, 200, 0.1) 100%);
+      z-index: -1;
+      border-radius: 16px;
+    }
+
+    .neon-btn {
+      background: transparent;
+      border: 2px solid var(--neon-purple);
+      color: var(--neon-purple);
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .neon-btn:hover {
+      background: rgba(185, 103, 255, 0.2);
+      box-shadow: 0 0 15px rgba(185, 103, 255, 0.7);
+    }
+
+    .icon {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      fill: var(--neon-cyan);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .limited-offer-banner {
+      background: linear-gradient(135deg, #ff00c8, #b967ff, #00f0ff);
+      background-size: 400% 400%;
+      animation: gradient-pulse 3s ease infinite;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-top: 1rem;
+      box-shadow: 0 0 20px rgba(255, 0, 200, 0.8);
+    }
+
+    @keyframes gradient-pulse {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Pulsing Neon Border -->
+  <div class="neon-border"></div>
+
+  <div class="min-h-screen p-4 md:p-8">
+    <div class="max-w-7xl mx-auto">
+      <!-- Hero Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <!-- Portrait -->
+        <div class="flex justify-center items-start">
+          <div class="bg-gray-900/50 p-4 rounded-xl">
+            <svg class="portrait w-64 h-64" viewBox="0 0 200 200">
+              <circle cx="100" cy="80" r="40" fill="#1f2937" />
+              <rect x="60" y="130" width="80" height="10" rx="5" fill="#1f2937" />
+              <circle cx="85" cy="75" r="8" fill="#00f0ff" />
+              <circle cx="115" cy="75" r="8" fill="#ff00c8" />
+              <path d="M60 75 L140 75" stroke="#e5e7eb" stroke-width="2" />
+              <circle cx="85" cy="75" r="12" fill="none" stroke="#e5e7eb" stroke-width="2" />
+              <circle cx="115" cy="75" r="12" fill="none" stroke="#e5e7eb" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Title & Promo -->
+        <div class="flex flex-col justify-center">
+          <h1 class="text-4xl md:text-6xl mb-4 glow" style="color: var(--neon-blue);">USANA CYBER WELLNESS</h1>
+          <p class="text-lg mb-6" style="color: var(--neon-cyan);">Diabetes Protocol • Christine</p>
+          
+          <div class="panel mb-6">
+            <div class="flex items-center gap-2 mb-3">
+              <svg class="icon" viewBox="0 0 24 24" style="color: var(--neon-green);">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span class="font-bold" style="color: var(--neon-green);">BIRTHDAY PROTOCOL • OCT 1, 1987</span>
+            </div>
+            <p><strong>Christine</strong> • 38 • Glucose Optimization</p>
+          </div>
+
+          <!-- Promo Banner -->
+          <div class="panel relative overflow-hidden" style="border-color: var(--neon-orange);">
+            <div class="absolute -top-3 -left-3 bg-red-500 text-black px-4 py-1 rounded-full font-bold text-lg" style="transform: rotate(-8deg);">
+              50% OFF
+            </div>
+            <h3 class="text-3xl font-bold mb-4 glow" style="color: var(--neon-orange);">DIABETES WELLNESS PACKAGE</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+              <div>
+                <p class="opacity-80 text-sm">Original Value</p>
+                <p class="text-2xl md:text-3xl font-bold line-through text-white">₱65,000</p>
+              </div>
+              <div>
+                <p class="opacity-80 text-sm">Your Investment</p>
+                <p class="text-2xl md:text-3xl font-bold glow" style="color: var(--neon-green);">₱35,000</p>
+              </div>
+              <div>
+                <p class="opacity-80 text-sm">Valid Until</p>
+                <p class="text-2xl md:text-3xl font-bold text-white">Oct 10, 2025</p>
+              </div>
+            </div>
+            <div class="mt-4 text-center">
+              <p class="text-sm opacity-90">Valid until Friday, October 10, 2025 • Limited to Maximum 4 Accounts</p>
+              <div class="limited-offer-banner mt-2">
+                ⚠️ LIMITED OFFER! Act fast - only 4 slots remaining!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="flex flex-wrap gap-3 mb-8">
+        <button class="neon-btn active-tab" data-tab="overview">Overview</button>
+        <button class="neon-btn" data-tab="total-package">Total Package</button>
+        <button class="neon-btn" data-tab="in-depth">In-Depth Benefits</button>
+        <button class="neon-btn" data-tab="schedule">Schedule</button>
+        <button class="neon-btn" data-tab="catalog">Full Catalog</button>
+      </div>
+
+      <!-- Content Sections -->
+      <div id="content" class="space-y-8"></div>
+
+      <!-- Social Footer -->
+      <div class="mt-12 text-center">
+        <p class="mb-3 glow" style="color: var(--neon-pink);">which protocol resonates with you?</p>
+        <p class="mb-4">@markytanky • https://winningstorylab.com</p>
+        <div class="flex justify-center gap-4 mb-4">
+          <svg class="social-icon" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12z"/></svg>
+          <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.201 17.222c-.29.813-.902 1.516-1.722 1.984-.819.468-1.797.672-2.719.566-.921-.106-1.781-.586-2.414-1.349-.633-.763-.995-1.758-.995-2.743 0-.985.362-1.98.995-2.743.633-.763 1.493-1.243 2.414-1.349.922-.106 1.899.098 2.719.566.82.468 1.432 1.171 1.722 1.984l1.743-1.006c-.443-1.237-1.365-2.291-2.602-2.994C14.961 8.365 13.516 8 12 8c-1.516 0-2.961.365-4.201 1.068-1.237.703-2.159 1.757-2.602 2.994l1.743 1.006c.29-.813.902-1.516 1.722-1.984.819-.468 1.797-.672 2.719-.566.921.106 1.781.586 2.414 1.349.633.763.995 1.758.995 2.743 0 .985-.362 1.98-.995 2.743-.633.763-1.493 1.243-2.414 1.349-.922.106-1.899-.098-2.719-.566-.82-.468-1.432-1.171-1.722-1.984l-1.743 1.006c.443 1.237 1.365 2.291 2.602 2.994 1.24.703 2.685 1.068 4.201 1.068 1.516 0 2.961-.365 4.201-1.068 1.237-.703 2.159-1.757 2.602-2.994l-1.743-1.006z"/></svg>
+          <svg class="social-icon" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+        </div>
+        <p class="text-xs opacity-70">#WellnessProtocol #CyberHealth #USANAPh</p>
+        <div class="mt-4 inline-block p-2 bg-gray-900 rounded">
+          <div style="width: 80px; height: 80px; background: repeating-linear-gradient(45deg, var(--neon-cyan), var(--neon-cyan) 10px, transparent 10px, transparent 20px);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Data
+    const christinePackage = [
+      {
+        item: '101',
+        name: 'CellSentials',
+        price: 3690,
+        quantity: 5,
+        subtotal: 18450,
+        dosage: '4 tablets daily (2 with breakfast, 2 with dinner)',
+        benefit: 'Optimizes cellular health, addresses vitamin deficiencies, enhances antioxidant production',
+        detailedBenefit: 'This foundational supplement delivers a comprehensive blend of vitamins, minerals, antioxidants, and phytonutrients to optimize cellular health. For you, it addresses deficiencies (e.g., vitamins D, B12, magnesium) that can worsen insulin resistance and complications like neuropathy or poor wound healing. By activating NRF-2 receptors, it boosts your body’s antioxidant production, enhancing mitochondrial function often impaired in diabetes due to high blood sugar. This can improve your energy, immune response, and metabolic balance, potentially aiding blood sugar control when paired with your meals. Studies suggest multivitamin support may promote weight management and reduce related risks, though it’s not a cure.'
+      },
+      {
+        item: '110',
+        name: 'Proflavanol C100',
+        price: 3100,
+        quantity: 5,
+        subtotal: 15500,
+        dosage: '2 tablets daily with breakfast',
+        benefit: 'Protects against oxidative damage, improves insulin sensitivity, supports cardiovascular health',
+        detailedBenefit: 'This potent antioxidant combines 100 mg of grape seed extract bioflavonoids with vitamin C to protect against oxidative damage, a major issue in diabetes linked to retinopathy, nephropathy, and cardiovascular problems. For you, it may improve insulin sensitivity, reduce inflammation, and support healthy blood pressure and cholesterol—vital since diabetes increases heart disease risk by 2-4 times. The bioflavonoids offer neuroprotective benefits, potentially easing diabetic neuropathy symptoms like nerve pain. It also boosts your immune function and skin health, reducing infection risk.'
+      },
+      {
+        item: '123',
+        name: 'CoQuinone 30',
+        price: 3420,
+        quantity: 6,
+        subtotal: 20520,
+        dosage: '1 gelcap daily with dinner',
+        benefit: 'Enhances energy production, improves insulin sensitivity, alleviates neuropathy symptoms',
+        detailedBenefit: 'This blend provides 30 mg of CoQ10 and 12.5 mg of alpha-lipoic acid (ALA) per gelcap for superior absorption, enhancing cellular energy production. In diabetes, where mitochondrial dysfunction and oxidative stress drain energy, CoQ10 helps convert glucose into ATP, potentially improving your insulin sensitivity and reducing fatigue. ALA regenerates antioxidants (e.g., vitamin C, E) and is renowned for alleviating diabetic neuropathy symptoms like pain and numbness by protecting nerves and improving blood flow. Together, they support your cardiovascular health, muscle function, and brain health—ideal for your walks.'
+      },
+      {
+        item: '122',
+        name: 'BiOmega',
+        price: 2250,
+        quantity: 4,
+        subtotal: 9000,
+        dosage: '2 gelcaps daily with lunch',
+        benefit: 'Reduces inflammation, supports heart health, lowers triglycerides',
+        detailedBenefit: 'This fish oil supplement offers concentrated omega-3s (EPA and DHA) and vitamin D from ultra-pure sources to target inflammation and systemic health. For you, omega-3s reduce chronic inflammation driving insulin resistance, improve lipid profiles by lowering triglycerides, and support cholesterol levels, critical for preventing heart disease. Vitamin D strengthens your bones, cognitive health, and immunity, addressing deficiencies that can worsen blood sugar control. It promotes cardiovascular function, brain health, and joint support, aligning with your active lifestyle.'
+      },
+      {
+        item: '201',
+        name: 'USANA DTX Tea Mix',
+        price: 1530,
+        quantity: 1,
+        subtotal: 1530,
+        dosage: '1 packet daily (as tea)',
+        benefit: 'Supports liver detoxification and healthy glucose metabolism',
+        detailedBenefit: 'A blend of milk thistle, dandelion, and other botanicals to support liver function—key for healthy glucose metabolism and detoxification pathways often overloaded in diabetes.'
+      }
+    ];
+
+    const fullCatalog = [
+      // Essential Nutrition
+      { item: '101', name: 'CellSentials (112 tabs)', points: 34, price: 3690, category: 'Essential Nutrition' },
+      { item: '101', name: 'Mini CellSentials (28 tabs)', points: null, price: 1110, category: 'Essential Nutrition' },
+      { item: '105', name: 'Usanimals (56 tabs)', points: 8, price: 1400, category: 'Essential Nutrition' },
+      // Optimizers
+      { item: '108', name: 'USANA Probiotic (14 packets)', points: 10, price: 1700, category: 'Optimizers' },
+      { item: '110', name: 'Proflavanol C100 (56 tabs)', points: 30, price: 3100, category: 'Optimizers' },
+      { item: '111', name: 'Digestive Enzyme (56 tabs)', points: 14, price: 1680, category: 'Optimizers' },
+      { item: '115', name: 'ProCalm+ (56 tabs)', points: 12, price: 1680, category: 'Optimizers' },
+      { item: '120', name: 'MagneCal D (112 tabs)', points: 15, price: 1950, category: 'Optimizers' },
+      { item: '122', name: 'BiOmega (56 gelcaps)', points: 14, price: 2250, category: 'Optimizers' },
+      { item: '123', name: 'CoQuinone 30 (56 gelcaps)', points: 32, price: 3420, category: 'Optimizers' },
+      { item: '126', name: 'CopaPrime+ (56 tabs)', points: 20, price: 2580, category: 'Optimizers' },
+      { item: '128', name: 'Palmetto Plus (30 gelcaps)', points: 17, price: 2730, category: 'Optimizers' },
+      { item: '130', name: 'Poly C (120 tabs)', points: 10, price: 1600, category: 'Optimizers' },
+      { item: '131', name: 'Procosa (84 tabs)', points: 19, price: 2580, category: 'Optimizers' },
+      { item: '134', name: 'Visionex (56 tabs)', points: 25, price: 2730, category: 'Optimizers' },
+      { item: '135', name: 'Hepasil DTX (84 tabs)', points: 24, price: 2940, category: 'Optimizers' },
+      { item: '141', name: 'Pure Rest SF (56 tabs)', points: 8, price: 1160, category: 'Optimizers' },
+      { item: '146', name: 'Proglucamune (56 tabs)', points: 15, price: 2200, category: 'Optimizers' },
+      { item: '156', name: 'USANA Advanced Collagen', points: 12, price: 2100, category: 'Optimizers' },
+      // Weight Management
+      { item: '210', name: 'Nutrimeal Dutch Chocolate (9 servings)', points: 12, price: 1950, category: 'Weight Management' },
+      { item: '211', name: 'Nutrimeal French Vanilla (9 servings)', points: 12, price: 1950, category: 'Weight Management' },
+      { item: '212', name: 'Nutrimeal Wild Strawberry (9 servings)', points: 12, price: 1950, category: 'Weight Management' },
+      { item: '270', name: 'Nutrimeal + Soy Chocolate (14 Servings)', points: 15, price: 2790, category: 'Weight Management' },
+      { item: '271', name: 'Nutrimeal + Soy Vanilla (14 Servings)', points: 15, price: 2790, category: 'Weight Management' },
+      // Active Nutrition
+      { item: '147', name: 'Active+ Supplement (84 tablets)', points: 15, price: 1950, category: 'Active Nutrition' },
+      { item: '201', name: 'USANA DTX Tea Mix (28 packets)', points: 8, price: 1530, category: 'Active Nutrition' },
+      { item: '224', name: 'Fibergy Active (28 servings)', points: 14, price: 1850, category: 'Active Nutrition' },
+      { item: '242', name: 'Electrolyte Replacement Drink Watermelon (28 packets)', points: 10, price: 2300, category: 'Active Nutrition' },
+      // Celavive
+      { item: '333', name: 'Creamy Foam Cleanser', points: 14, price: 1890, category: 'Celavive' },
+      { item: '331', name: 'Perfecting Toner', points: 14, price: 1950, category: 'Celavive' },
+      { item: '339', name: 'Vitalizing Serum', points: 60, price: 5500, category: 'Celavive' },
+      { item: '355', name: 'Resurfacing Serum', points: 60, price: 5500, category: 'Celavive' },
+      { item: '347', name: 'Triple Action Eye Cream', points: 55, price: 5000, category: 'Celavive' },
+      { item: '358', name: 'Contouring Face & Neck Crème', points: 55, price: 5000, category: 'Celavive' },
+      { item: '334', name: 'Protective Day Lotion (Oily/Combination)', points: 16, price: 2000, category: 'Celavive' },
+      { item: '335', name: 'Protective Day Cream (Dry/Sensitive)', points: 16, price: 2000, category: 'Celavive' },
+      { item: '341', name: 'Exfoliating Charcoal Facial Mask+Scrub', points: 10, price: 1580, category: 'Celavive' },
+      { item: '342', name: 'Hydrating+Lifting Sheet Mask (3 masks)', points: 9, price: 1260, category: 'Celavive' },
+      { item: '344', name: 'Luminous Moisture Cream (Brightening)', points: 22, price: 2310, category: 'Celavive' },
+      // Oral Care
+      { item: '398', name: 'Whitening Toothpaste', points: 3, price: 480, category: 'Oral Care' }
+    ];
+    const dailyTips = [
+      { icon: 'Activity', time: '7:00 AM & 6:00 PM', title: 'Monitor Blood Sugar', description: 'Test levels with glucometer and record in notebook' },
+      { icon: 'Pill', time: '1:30 PM', title: '30-Minute Walk', description: 'Aim for 3,000 steps around your garden or local park' },
+      { icon: 'Droplet', time: 'By 5:00 PM', title: 'Hydrate', description: 'Drink 2 liters of water throughout the day' },
+      { icon: 'Clock', time: '8:00 PM', title: 'Breathing Exercise', description: '5 deep breaths: inhale 4 seconds, exhale 6 seconds' }
+    ];
+
+    const mealTips = [
+      "Tonight's Dinner: 1 cup steamed spinach + 3 oz baked salmon + ½ cup quinoa",
+      "Tomorrow's Breakfast: USANA Nutrimeal Dutch Chocolate blended with 250ml water (200 calories)",
+      "After Walk: Mix 1 packet USANA Electrolyte Replacement Drink (Watermelon) with 500ml water"
+    ];
+
+    // Icons as strings
+    const icons = {
+      Activity: `<svg class="icon" style="color: var(--neon-blue);"><path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 19.256 11.267 20.614 12.625 23 15.042 21.672ZM12 15a3 3 0 100-6 3 3 0 000 6ZM9 12a3 3 0 116 0 3 3 0 01-6 0Z" /></svg>`,
+      Pill: `<svg class="icon" style="color: var(--neon-purple);"><circle cx="8" cy="16" r="6"></circle><circle cx="16" cy="8" r="6"></circle><line x1="8" y1="10" x2="16" y2="14"></line></svg>`,
+      Droplet: `<svg class="icon" style="color: var(--neon-cyan);"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>`,
+      Clock: `<svg class="icon" style="color: var(--neon-green);"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`
+    };
+
+    // State
+    let activeTab = 'overview';
+    let expandedSupplement = null;
+    let catalogFilter = 'All';
+    const categories = ['All', ...new Set(fullCatalog.map(p => p.category))];
+    const total = christinePackage.reduce((sum, item) => sum + item.subtotal, 0);
+
+    // Render functions
+    function renderOverview() {
+      return `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h2 class="text-2xl mb-4 glow" style="color: var(--neon-blue);">Protocol Overview</h2>
+            <div class="space-y-3">
+              ${christinePackage.map(item => `
+                <div class="flex justify-between py-2 border-b border-gray-800">
+                  <span>${item.name}</span>
+                  <span>₱${item.subtotal.toLocaleString()}</span>
+                </div>
+              `).join('')}
+              <div class="font-bold text-xl mt-4 glow" style="color: var(--neon-green);">Total: ₱${total.toLocaleString()}</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl mb-4 glow" style="color: var(--neon-cyan);">Key Benefits</h3>
+            <ul class="space-y-2">
+              <li>• Cellular health & antioxidant support</li>
+              <li>• Neuropathy symptom relief</li>
+              <li>• Cardiovascular & triglyceride management</li>
+              <li>• Liver detox & glucose metabolism</li>
+              <li>• Daily energy & mitochondrial support</li>
+            </ul>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderTotalPackage() {
+      return `
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[600px]">
+            <thead>
+              <tr class="border-b border-gray-800">
+                <th class="p-3 text-left">Item #</th>
+                <th class="p-3 text-left">Product</th>
+                <th class="p-3 text-right">Price</th>
+                <th class="p-3 text-center">Qty</th>
+                <th class="p-3 text-right">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${christinePackage.map((supp, idx) => `
+                <tr class="border-b border-gray-800 hover:bg-gray-900/30">
+                  <td class="p-3 font-mono">${supp.item}</td>
+                  <td class="p-3 font-semibold">${supp.name}</td>
+                  <td class="p-3 text-right">₱${supp.price.toLocaleString()}</td>
+                  <td class="p-3 text-center">${supp.quantity}</td>
+                  <td class="p-3 text-right font-bold glow" style="color: var(--neon-green);">₱${supp.subtotal.toLocaleString()}</td>
+                </tr>
+              `).join('')}
+              <tr class="font-bold">
+                <td colspan="4" class="p-3 text-right">Total:</td>
+                <td class="p-3 text-right text-xl glow" style="color: var(--neon-green);">₱${total.toLocaleString()}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderInDepth() {
+      return `
+        <div>
+          <h2 class="text-2xl mb-6 glow" style="color: var(--neon-blue);">In-Depth Benefits</h2>
+          <p class="mb-6">Click any supplement to reveal its clinical purpose.</p>
+          <div class="space-y-5">
+            ${christinePackage.map((supp, idx) => `
+              <div class="panel cursor-pointer hover:shadow-lg transition" data-supplement="${idx}" style="border-color: var(--neon-purple);">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="text-xl font-bold">${supp.name} <span style="color: var(--neon-purple);">(Item #${supp.item})</span></h3>
+                    <p class="mt-2 text-gray-300">${supp.benefit}</p>
+                  </div>
+                  <span class="text-neon-purple font-bold text-lg">${expandedSupplement === idx ? '−' : '+'}</span>
+                </div>
+                ${expandedSupplement === idx ? `
+                  <div class="mt-4 p-4 bg-gray-900/50 rounded-lg border-l-4 animate-fadeIn" style="border-color: var(--neon-cyan);">
+                    <p class="text-gray-200">${supp.detailedBenefit}</p>
+                    <div class="mt-3 pt-3 border-t border-gray-700">
+                      <p class="text-sm" style="color: var(--neon-green);"><strong>Dosage:</strong> ${supp.dosage}</p>
+                    </div>
+                  </div>
+                ` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSchedule() {
+      return `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          ${dailyTips.map(tip => `
+            <div class="panel" style="border-color: var(--neon-blue);">
+              <div class="flex items-start gap-4">
+                <div class="p-2 bg-blue-900/30 rounded-lg">
+                  ${icons[tip.icon]}
+                </div>
+                <div>
+                  <div class="text-sm font-semibold" style="color: var(--neon-green);">${tip.time}</div>
+                  <h3 class="font-bold mt-1">${tip.title}</h3>
+                  <p class="mt-2 text-gray-300">${tip.description}</p>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="mt-8 panel" style="border-color: var(--neon-cyan);">
+          <h3 class="text-xl mb-3 glow" style="color: var(--neon-cyan);">Meal Planning Tips</h3>
+          <ul class="space-y-2 text-gray-300">
+            ${mealTips.map(tip => `<li>• ${tip}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    function renderCatalog() {
+      const filtered = catalogFilter === 'All' ? fullCatalog : fullCatalog.filter(p => p.category === catalogFilter);
+      return `
+        <div>
+          <div class="mb-6 flex flex-wrap gap-2">
+            ${categories.map(cat => `
+              <button class="neon-btn text-xs px-3 py-1 ${catalogFilter === cat ? 'glow' : ''}" 
+                      style="border-color: ${catalogFilter === cat ? 'var(--neon-cyan)' : 'var(--neon-purple)'}; color: ${catalogFilter === cat ? 'var(--neon-cyan)' : 'var(--neon-purple)'};"
+                      data-filter="${cat}">
+                ${cat}
+              </button>
+            `).join('')}
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[700px]">
+              <thead class="bg-gray-900/50">
+                <tr>
+                  <th class="p-3 text-left">Item #</th>
+                  <th class="p-3 text-left">Product</th>
+                  <th class="p-3 text-left">Category</th>
+                  <th class="p-3 text-right">Points</th>
+                  <th class="p-3 text-right">Price (₱)</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${filtered.map(prod => `
+                  <tr class="border-b border-gray-800 hover:bg-gray-900/30">
+                    <td class="p-3 font-mono">${prod.item}</td>
+                    <td class="p-3">${prod.name}</td>
+                    <td class="p-3" style="color: var(--neon-purple);">${prod.category}</td>
+                    <td class="p-3 text-right">${prod.points ?? '—'}</td>
+                    <td class="p-3 text-right font-semibold glow" style="color: var(--neon-green);">₱${prod.price.toLocaleString()}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderContent() {
+      let html = '';
+      switch(activeTab) {
+        case 'overview': html = renderOverview(); break;
+        case 'total-package': html = renderTotalPackage(); break;
+        case 'in-depth': html = renderInDepth(); break;
+        case 'schedule': html = renderSchedule(); break;
+        case 'catalog': html = renderCatalog(); break;
+      }
+      document.getElementById('content').innerHTML = html;
+
+      // Rebind event listeners
+      document.querySelectorAll('[data-tab]').forEach(btn => {
+        btn.onclick = () => {
+          activeTab = btn.dataset.tab;
+          document.querySelectorAll('.neon-btn').forEach(b => b.classList.remove('glow'));
+          btn.classList.add('glow');
+          renderContent();
+        };
+      });
+
+      document.querySelectorAll('[data-supplement]').forEach(card => {
+        card.onclick = () => {
+          const idx = parseInt(card.dataset.supplement);
+          expandedSupplement = expandedSupplement === idx ? null : idx;
+          renderContent();
+        };
+      });
+
+      document.querySelectorAll('[data-filter]').forEach(btn => {
+        btn.onclick = () => {
+          catalogFilter = btn.dataset.filter;
+          renderContent();
+        };
+      });
+    }
+
+    // Initialize
+    document.querySelectorAll('.neon-btn')[0].classList.add('glow');
+    renderContent();
+  </script>
+</body>
+</html>
